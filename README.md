@@ -1,0 +1,4 @@
+stodo
+=====
+
+Simple todo manager
