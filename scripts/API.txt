@@ -1,0 +1,84 @@
+global object:
+	app
+
+properties of app:
+	frame
+	list
+	style
+
+function of app:
+	function exit()
+	function init(options)
+	function launch();
+	
+properties of app.frame:
+	menubar
+	searchbox
+
+
+function of app.frame:
+	function addComponent(comp, pos)
+
+properties of app.frame.menubar:
+
+function of app.frame.menubar:
+	function addMenu(text, action)
+	function addMenuItem(menu, text, action)
+
+function of app.frame.searchbox:	
+	function getText()
+	function setOptions(options)
+
+properties of app.list:
+	count
+	selected
+
+function of app.list:
+	function addItem(item)
+	function removeItem(item)
+	function editItem(item)
+
+var app = {
+	frame : {
+		menubar : {
+			addMenu : function(text, action){
+			
+			},
+			
+			addMenuItem : function(menu, text, action){
+			
+			}
+		},
+		
+		searchbox : {
+			getText : function(){
+			
+			},
+			
+			setOptions : function(options){
+				
+			}
+		},
+		
+		addComponent : function(comp, pos){
+			
+		}
+	},
+	
+	list : {
+		count : 100,
+		selected : 2,
+		addItem : function(item){
+			
+		},
+		
+		removeItem : function(item){
+		
+		},
+		
+		editItem : function(item){
+		
+		}
+	}
+}
+
