@@ -5,8 +5,6 @@
  */
 package org.free.todolist.export;
 
-import java.io.IOException;
-
 /**
  *
  * @author juntao.qiu@gmail.com

@@ -1,8 +1,10 @@
 package org.free.todolist.plugin;
-import javax.script.*;
 
-import java.io.*;
-import java.util.*;
+import javax.script.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public abstract class ScriptCache {
     public static final String ENGINE_NAME = "JavaScript";

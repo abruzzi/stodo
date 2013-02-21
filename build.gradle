@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+    }
+
+    test {
+        java {
+            srcDir 'test'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.xerial:sqlite-jdbc:3.7.2' 
+    compile 'org.slf4j:jcl-over-slf4j:1.7.2'
+    compile 'org.apache.commons:commons-email:1.2'
+    compile 'javax.mail:mail:1.4.5'
+    compile 'org.json:json:20090211'
+}

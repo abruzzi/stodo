@@ -1,3 +1,9 @@
 .classpath
 .project
 .swp
+stodo.iml
+stodo.ipr
+stodo.iws
+.gradle
+stodoitem
+out/

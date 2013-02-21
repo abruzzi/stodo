@@ -1,14 +1,11 @@
 package org.free.todolist.ui;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.ImageIcon;
-import javax.swing.JDialog;
-import javax.swing.JPanel;
-
 import org.free.todolist.data.DataService;
 import org.free.todolist.model.TodoItem;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class AlarmDialog extends JDialog{
 	private static final long serialVersionUID = 7752112784554536906L;

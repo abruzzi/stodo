@@ -1,19 +1,13 @@
 package org.free.todolist.ui;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Font;
+import org.free.todolist.model.TodoItem;
+
+import javax.swing.*;
+import java.awt.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
 import java.util.List;
-
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.ListCellRenderer;
-
-import org.free.todolist.model.TodoItem;
 
 public class TodoListCellRenderer implements ListCellRenderer {
 	private static URI finished;

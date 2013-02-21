@@ -1,7 +1,13 @@
 package org.free.todolist.plugin;
-import javax.script.*;
-import java.io.*;
-import java.util.*;
+
+import javax.script.Compilable;
+import javax.script.CompiledScript;
+import javax.script.ScriptException;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.util.Date;
 
 public class CachedScript {
     private Compilable scriptEngine;

@@ -1,21 +1,13 @@
 package org.free.todolist.ui;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
 import org.free.todolist.data.SimpleTextMail;
-import org.free.todolist.mail.MailSender;
 import org.free.todolist.manager.TaskService;
 import org.free.todolist.model.TodoItem;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class NewMailDialog extends JDialog {
 

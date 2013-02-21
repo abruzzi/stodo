@@ -1,6 +1,6 @@
 package org.free.todolist.data;
 
-import org.free.todolist.util.JSONObject;
+import org.json.JSONObject;
 
 /**
  * Simple Text Mail Bean

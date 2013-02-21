@@ -11,19 +11,17 @@
 
 package org.free.todolist.ui;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.text.DateFormat;
-import java.util.Date;
-
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-
 import org.free.todolist.data.DataService;
 import org.free.todolist.manager.TaskService;
 import org.free.todolist.model.TodoItem;
 import org.free.todolist.plugin.Plugin;
 import org.free.todolist.plugin.TodoPluginManager;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.util.Date;
 
 /**
  *

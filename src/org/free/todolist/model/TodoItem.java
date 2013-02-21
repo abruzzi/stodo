@@ -1,7 +1,6 @@
 package org.free.todolist.model;
 
-import org.free.todolist.util.JSONException;
-import org.free.todolist.util.JSONObject;
+import org.json.JSONObject;
 
 /**
  * todo item is a simple tree data-model, it can be used to build a swing-jtree

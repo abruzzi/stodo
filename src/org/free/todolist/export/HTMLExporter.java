@@ -5,11 +5,11 @@
  */
 package org.free.todolist.export;
 
+import org.free.todolist.model.TodoItem;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
-
-import org.free.todolist.model.TodoItem;
 
 /**
  *

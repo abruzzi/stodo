@@ -2,6 +2,7 @@ package org.free.todolist.manager;
 
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -60,7 +61,7 @@ public class TaskService {
 	
 	private long convert(String timeout){
 	    long later = 0L;
-	    DateFormat format = DateFormat.getDateTimeInstance();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	    try {
             later = format.parse(timeout).getTime();
         } catch (ParseException e) {

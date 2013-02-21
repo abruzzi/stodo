@@ -1,13 +1,12 @@
 package org.free.todolist.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.swing.AbstractListModel;
+import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This is the datamodel of the filterable-list, the items in the list

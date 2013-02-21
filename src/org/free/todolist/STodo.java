@@ -1,15 +1,14 @@
 package org.free.todolist;
 
-import java.util.List;
-
-import javax.script.ScriptContext;
-import javax.swing.SwingUtilities;
-
 import org.free.todolist.plugin.Plugin;
 import org.free.todolist.plugin.PluginManager;
 import org.free.todolist.plugin.TodoPlugin;
 import org.free.todolist.plugin.TodoPluginManager;
 import org.free.todolist.ui.MainFrame;
+
+import javax.script.ScriptContext;
+import javax.swing.*;
+import java.util.List;
 
 /**
  * the main entry of sTodo
@@ -84,8 +83,6 @@ public class STodo {
 		
 		Plugin system = TodoPluginManager.getInstance().getPlugin("system");
 		system.putValueToContext("Application", sTodo);
-		system.putValueToContext("DataModel", new DataModel());
-		system.putValueToContext("Util", new Util());
 		
 		system.execute("main", new Object());
 	}

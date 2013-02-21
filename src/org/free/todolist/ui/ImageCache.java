@@ -31,20 +31,14 @@
 
 package org.free.todolist.ui;
 
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GraphicsConfiguration;
-import java.awt.Image;
-import java.awt.RenderingHints;
-import java.awt.Transparency;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.lang.ref.SoftReference;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
-import javax.swing.ImageIcon;
 
 public class ImageCache {
     private static final ImageCache INSTANCE = new ImageCache();

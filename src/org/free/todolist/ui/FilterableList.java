@@ -1,10 +1,8 @@
 package org.free.todolist.ui;
 
-import javax.swing.JList;
-import javax.swing.JTextField;
-import javax.swing.ListModel;
-
 import org.free.todolist.model.FilterableListModel;
+
+import javax.swing.*;
 
 /**
  * This is a filterable list which extends from JList, and its

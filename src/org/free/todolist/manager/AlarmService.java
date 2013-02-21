@@ -1,13 +1,11 @@
 package org.free.todolist.manager;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.util.Date;
-
-import javax.swing.JDialog;
-
 import org.free.todolist.model.TodoItem;
 import org.free.todolist.ui.AlarmDialog;
+
+import javax.swing.*;
+import java.text.DateFormat;
+import java.text.ParseException;
 
 /**
  * 

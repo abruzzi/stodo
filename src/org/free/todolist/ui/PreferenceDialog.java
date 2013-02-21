@@ -1,16 +1,13 @@
 package org.free.todolist.ui;
 
+import org.free.todolist.data.UserSetting;
+import org.free.todolist.model.Preference;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-
-import javax.swing.ImageIcon;
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
-
-import org.free.todolist.data.UserSetting;
-import org.free.todolist.model.Preference;
 
 public class PreferenceDialog extends JDialog{
 	private static final long serialVersionUID = 564848587665764634L;

@@ -1,18 +1,12 @@
 package org.free.todolist.data;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.LinkedList;
-import java.util.List;
-
-import org.free.todolist.manager.TaskService;
 import org.free.todolist.model.TodoItem;
 import org.free.todolist.plugin.Plugin;
 import org.free.todolist.plugin.TodoPluginManager;
+
+import java.sql.*;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * This is the data-service of <code>sTodo</code>, it provides

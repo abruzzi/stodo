@@ -11,7 +11,7 @@ function main(){
 	var ui = app.getUI();
 	
 	//set look and feel to windows
-	ui.setLookAndFeel("windows");
+	ui.setLookAndFeel("system");
 	
 	//load some new scripts
 	app.activePlugin("scripts/json.js");
@@ -21,5 +21,4 @@ function main(){
 	app.activePlugin("scripts/misc.js");
 	
 	app.launch();
-	//loadTodosFromFile("todos.txt");
 }
