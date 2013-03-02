@@ -3,4 +3,4 @@ stodo
 
 Simple todo manager
 
-image:: https://raw.github.com/abruzzi/stodo/docs/images/main.png
+![How does it look like](http://abruzzi.github.com/images/2013/01/stodo_edit.png)
