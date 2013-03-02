@@ -3,6 +3,8 @@ importPackage(Packages.javax.swing)
 importClass(java.lang.System)
 importClass(java.lang.reflect.Constructor)
 
+var app = Application;
+
 var STodoMenuItem = function(text, icon, func){
 	this.menu = new JMenuItem();
 	this.menu.setText(text);
@@ -42,7 +44,7 @@ function buildPluginMenu(){
 				var plFrame = new JFrame("plugins list");
 				var epNote = new JEditorPane();
 				var s = "";
-				pluginList = Application.getPluginList();
+				pluginList = app.getPluginList();
 				for(var i = 0; i<pluginList.size();i++){
 					var pi = pluginList.get(i);
 					s += pi.getName()+":"+pi.getDescription()+"\n";

@@ -562,10 +562,7 @@ public class MainFrame extends JFrame {
 			as.cancelSchedule(item);
 		}
 
-		if (s) {
-			JOptionPane.showMessageDialog(null, "Task is deleted", "Success",
-					JOptionPane.INFORMATION_MESSAGE);
-		} else {
+		if (!s) {
 			JOptionPane.showMessageDialog(null, ds.getMessage(),
 					"Something is wrong", JOptionPane.ERROR_MESSAGE);
 		}

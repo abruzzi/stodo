@@ -210,8 +210,6 @@ public class NewTaskDialog extends javax.swing.JDialog {
 				DataService ds = DataService.getInstance();
 				boolean s = ds.addItem(data);
 				if(s){
-					JOptionPane.showMessageDialog(null, 
-							"New task inserted", "Success", JOptionPane.INFORMATION_MESSAGE);
 					//NewTaskDialog.this.parent.updateList(data);
 					NewTaskDialog.this.parent.refreshModel(ds.getAllItems());
 					NewTaskDialog.this.setVisible(false);

@@ -101,16 +101,6 @@ public class NewMailDialog extends JDialog {
 				TaskService ts = TaskService.getInstance();
 				ts.sendMail(stMail);
 				NewMailDialog.this.setVisible(false);
-				
-				/*
-				MailSender sender = new MailSender(stMail);
-				boolean st = sender.send();
-				if(st){
-					JOptionPane.showMessageDialog(
-							NewMailDialog.this, "mail is sent", "mail is sent!!", JOptionPane.INFORMATION_MESSAGE);
-					NewMailDialog.this.setVisible(false);
-				}
-				*/
 			}
         });
         

@@ -206,8 +206,6 @@ public class EditTaskDialog extends javax.swing.JDialog{
 				boolean s = ds.updateItem(data);
 				
 				if(s){
-					JOptionPane.showMessageDialog(null, 
-							"Edit on task is saved", "Success", JOptionPane.INFORMATION_MESSAGE);
 					EditTaskDialog.this.parent.refreshModel(ds.getAllItems());
 					TaskService as = TaskService.getInstance();
 					//is already exist, then cancel it
