@@ -7,3 +7,9 @@ stodo.iws
 .gradle
 stodoitem
 out/
+.DS_Store
+.idea/
+build/
+gradle/
+gradlew
+gradlew.bat

@@ -1,7 +1,6 @@
-importPackage(java.awt, java.awt.event)
-importPackage(Packages.javax.swing)
-importClass(java.lang.System)
-importClass(java.lang.reflect.Constructor)
+var JMenu = Java.type('javax.swing.JMenu')
+var JMenuItem = Java.type('javax.swing.JMenuItem')
+var ImageIcon = Java.type('javax.swing.ImageIcon')
 
 var app = Application;
 

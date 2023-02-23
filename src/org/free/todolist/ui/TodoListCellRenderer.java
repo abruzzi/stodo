@@ -17,12 +17,13 @@ public class TodoListCellRenderer implements ListCellRenderer {
 	private static URI inew;
 	
 	static{
+
 		try {
-			inew = TodoListCellRenderer.class.getResource("schedule.png").toURI();
-			finished = TodoListCellRenderer.class.getResource("green.png").toURI();
-			pending = TodoListCellRenderer.class.getResource("red.png").toURI();
-			prefect = TodoListCellRenderer.class.getResource("orange.png").toURI();
-			cancelled = TodoListCellRenderer.class.getResource("grey.png").toURI();
+			inew = ClassLoader.getSystemResource("schedule.png").toURI();
+			finished = ClassLoader.getSystemResource("green.png").toURI();
+			pending = ClassLoader.getSystemResource("red.png").toURI();
+			prefect = ClassLoader.getSystemResource("orange.png").toURI();
+			cancelled = ClassLoader.getSystemResource("grey.png").toURI();
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
 		}

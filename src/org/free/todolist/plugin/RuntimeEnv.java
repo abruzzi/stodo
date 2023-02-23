@@ -1,8 +1,6 @@
 package org.free.todolist.plugin;
 
-import javax.script.Invocable;
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
+import javax.script.*;
 
 public class RuntimeEnv {
 	private static ScriptEngineManager manager;
@@ -10,7 +8,10 @@ public class RuntimeEnv {
 
 	static {
 		manager = new ScriptEngineManager();
-		engine = manager.getEngineByName("JavaScript");
+		engine = manager.getEngineByName("graal.js");
+
+		Bindings bindings = engine.getBindings(ScriptContext.ENGINE_SCOPE);
+		bindings.put("polyglot.js.allowAllAccess", true);
 	}
 
 	public static ScriptEngine getScriptEngine() {

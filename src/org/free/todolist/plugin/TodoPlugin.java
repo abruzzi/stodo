@@ -1,9 +1,6 @@
 package org.free.todolist.plugin;
 
-import javax.script.Invocable;
-import javax.script.ScriptContext;
-import javax.script.ScriptEngine;
-import javax.script.ScriptException;
+import javax.script.*;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.HashMap;
@@ -18,6 +15,8 @@ public class TodoPlugin implements Plugin {
 
 	private ScriptEngine sengine;
 	private Invocable engine;
+
+	private Bindings bindings;
 
 	public TodoPlugin(String file, String name, String desc) {
 		this.name = name;
@@ -80,6 +79,8 @@ public class TodoPlugin implements Plugin {
 	 * put value to plug-in context, and then put it into engine context
 	 */
 	public void putValueToContext(String key, Object obj) {
+		Bindings bindings = sengine.getBindings(ScriptContext.ENGINE_SCOPE);
+		bindings.put(key, obj);
 		context.put(key, obj);
 		sengine.put(key, obj);
 	}

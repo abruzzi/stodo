@@ -12,8 +12,6 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
-import org.free.todolist.util.PropLoader;
-
 /**
  * A pool can provides <code>Executor</code> resources.
  * 
@@ -28,7 +26,10 @@ public final class ExecutorPool {
 
     static {
         cpus = Runtime.getRuntime().availableProcessors();
-        config = PropLoader.getProperties("ExecutorPool.properties");
+        config = new Properties();
+
+        config.put("pool.name", "ExecutorPool");
+        config.put("pool.size", 8);
     }
 
     /**
