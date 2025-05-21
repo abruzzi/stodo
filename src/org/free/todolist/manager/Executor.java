@@ -9,7 +9,7 @@ package org.free.todolist.manager;
 /**
  * A <code>Executor</code> is an abstract and reusable computing resources can
  * be used to complete a task calculation. The <code>Executor</code> is got from
- * a executor pool, and it will be return back to pool after calculating.
+ * an executor pool, and it will be return to pool after calculating.
  * 
  * @author dong.hu@china.jinfonet.com
  * 

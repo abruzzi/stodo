@@ -81,8 +81,8 @@ public class TaskService {
 		taskMgr.cancelTask(nt.getId());
 	}
 	
-	class Carrier implements Task{
-		private SimpleTextMail mail; 
+	static class Carrier implements Task{
+		private final SimpleTextMail mail;
 		
 		public Carrier(SimpleTextMail mail){
 			this.mail = mail;
@@ -114,8 +114,8 @@ public class TaskService {
 		
 	}
 	
-	class Alert implements Task{
-		private TodoItem item;
+	static class Alert implements Task{
+		private final TodoItem item;
 		
 		public Alert(TodoItem item) {
 			this.item = item;

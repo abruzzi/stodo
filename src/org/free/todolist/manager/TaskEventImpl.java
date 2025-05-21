@@ -48,7 +48,7 @@ public final class TaskEventImpl implements TaskEvent {
     }
 
     /**
-     * Attach result to this event.
+     * Attach a result to this event.
      * 
      * @param result
      */

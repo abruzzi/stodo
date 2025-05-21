@@ -12,8 +12,8 @@ import org.free.todolist.model.Preference;
  *
  */
 public class MailSender {
-	private UserSetting setting;
-	private SimpleTextMail mail;
+	private final UserSetting setting;
+	private final SimpleTextMail mail;
 	
 	public MailSender(SimpleTextMail mail){
 		setting = new UserSetting();

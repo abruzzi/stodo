@@ -17,16 +17,16 @@ public class AlarmService {
 		taskMgr = TaskManager.getInstance();
 	}
 	
-	private static AlarmService alerm;
+	private static AlarmService alarm;
 	private static TaskManager taskMgr;
 	
 	public static AlarmService getInstance(){
 		synchronized(AlarmService.class){
-			if(alerm == null){
-				alerm = new AlarmService();
+			if(alarm == null){
+				alarm = new AlarmService();
 			}
 		}
-		return alerm;
+		return alarm;
 	}
 	
 	public void addTodoItem(TodoItem item){
@@ -53,7 +53,7 @@ public class AlarmService {
 		taskMgr.cancelTask(nt.getId());
 	}
 	
-	class Alert implements Task{
+	static class Alert implements Task{
 		private TodoItem item;
 		
 		public Alert(TodoItem item) {

@@ -3,6 +3,9 @@ package org.free.extend.ui;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Used inside JavaScript to show we can invoke this Java class there
+ */
 public class HelpDialog extends JDialog {
 
     public HelpDialog(Frame owner, String message) {

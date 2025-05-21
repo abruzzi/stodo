@@ -13,7 +13,7 @@ import java.util.Properties;
 import java.util.Set;
 
 /**
- * A pool can provides <code>Executor</code> resources.
+ * A pool can provide <code>Executor</code> resources.
  * 
  * @author dong.hu@china.jinfonet.com
  * 
@@ -33,9 +33,8 @@ public final class ExecutorPool {
     }
 
     /**
-     * Return the instance of executors pool
-     * 
-     * @return
+     * Return the instance of executor pool
+     *
      */
     public static ExecutorPool getInstance() {
         synchronized (ExecutorPool.class) {
@@ -47,8 +46,8 @@ public final class ExecutorPool {
         return instance;
     }
 
-    private String name;
-    private int total;
+    private final String name;
+    private final int total;
     private List<Executor> executors;
     private Set<Executor> actives;
 
@@ -61,9 +60,8 @@ public final class ExecutorPool {
     }
 
     /**
-     * Return total number of executor in the pool.
-     * 
-     * @return
+     * Return total number of executors in the pool.
+     *
      */
     public int total() {
         return available() + active();
@@ -71,8 +69,7 @@ public final class ExecutorPool {
 
     /**
      * Return available executors number
-     * 
-     * @return
+     *
      */
     public int available() {
         synchronized (executors) {
@@ -82,8 +79,7 @@ public final class ExecutorPool {
 
     /**
      * Return active executors in the pool.
-     * 
-     * @return
+     *
      */
     public int active() {
         synchronized (actives) {

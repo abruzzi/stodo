@@ -37,18 +37,11 @@ public class HTMLExporter implements Exporter {
 	 * @see org.free.todolist.export.Exporter#store()
 	 */
 	public void store(){
-		FileWriter writer = null;
-		try {
-			writer = new FileWriter(file);
-			writer.write(content);
-			writer.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if(writer != null){
-				try{writer.close();}catch(Exception e){}
-			}
-		}
+        try (FileWriter writer = new FileWriter(file)) {
+            writer.write(content);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 
 }

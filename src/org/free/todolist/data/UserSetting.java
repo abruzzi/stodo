@@ -6,8 +6,8 @@ import java.io.*;
 import java.util.Properties;
 
 public class UserSetting {
-	private Preference preference;
-	private Properties prop;
+	private final Preference preference;
+	private final Properties prop;
 
 	/**
 	 * load default settings from preference.properties
@@ -17,8 +17,6 @@ public class UserSetting {
 		prop = new Properties();
 		try {
 			prop.load(new FileInputStream(new File("preference.properties")));
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -27,14 +25,14 @@ public class UserSetting {
 	
 	private void initPreference() {
 		preference.setProxyAutoDetect(
-				Boolean.valueOf(prop.getProperty("proxy.autodetect", "true")));
+				Boolean.parseBoolean(prop.getProperty("proxy.autodetect", "true")));
 		preference.setProxyHost(prop.getProperty("proxy.host", ""));
 		preference.setProxyPort(prop.getProperty("proxy.port", ""));
 		
 		preference.setExportPath(prop.getProperty("export.path", ""));
 		
 		preference.setUseSSL(
-				Boolean.valueOf(prop.getProperty("useSSL", "true")));
+				Boolean.parseBoolean(prop.getProperty("useSSL", "true")));
 		preference.setMailHost(prop.getProperty("mail.host", ""));
 		preference.setMailPort(prop.getProperty("mail.port", ""));
 		preference.setUsername(prop.getProperty("username", "abruzzi"));
@@ -42,9 +40,8 @@ public class UserSetting {
 	}
 
 	/**
-	 * return the preference defined in properties file
-	 * @return
-	 */
+	 * return the preference defined in a properties file
+     */
 	public Preference getPreference(){
 		return preference;
 	}
@@ -52,8 +49,7 @@ public class UserSetting {
 	
 	/**
 	 * store user edited preference into the properties file again.
-	 * @param preference
-	 */
+     */
 	public void savePreference(Preference preference){
 		prop.setProperty(
 				"proxy.autodetect", String.valueOf(preference.isProxyAutoDetect()));
@@ -70,8 +66,6 @@ public class UserSetting {
 		
 		try {
 			prop.store(new FileOutputStream(new File("preference.properties")), "");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

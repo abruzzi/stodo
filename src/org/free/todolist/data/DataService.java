@@ -21,8 +21,8 @@ public class DataService {
     private boolean status;
 
     /*
-     * sTodo using the embedded database sqlite as inner
-     * data-set, DataService can provide data to other module
+     * sTodo using the embedded database sqlite as an inner
+     * data-set, DataService can provide data to another module
      * of sTodo.
      */
     private DataService() {
