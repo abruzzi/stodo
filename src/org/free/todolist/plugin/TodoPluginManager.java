@@ -1,5 +1,8 @@
 package org.free.todolist.plugin;
 
+import org.graalvm.polyglot.Context;
+import org.graalvm.polyglot.HostAccess;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +15,8 @@ public class TodoPluginManager implements PluginManager {
 	private List<Plugin> plist;
 	private static TodoPluginManager instance;
 
+	private final Context polyglotContext;
+
 	public static TodoPluginManager getInstance() {
 		if (instance == null) {
 			instance = new TodoPluginManager();
@@ -21,6 +26,18 @@ public class TodoPluginManager implements PluginManager {
 
 	private TodoPluginManager() {
 		plist = new ArrayList<Plugin>(1);
+		this.polyglotContext = Context.newBuilder("js")
+				.allowAllAccess(true)
+				.allowHostAccess(HostAccess.ALL)
+				.allowHostClassLookup(s -> true)
+				.option("js.nashorn-compat", "true")
+				.option("js.foreign-object-prototype", "true")
+				.option("js.java-package-globals", "true")
+				.build();
+	}
+
+	public Context getContext() {
+		return polyglotContext;
 	}
 
 	public void activate(Plugin plugin) {
@@ -42,6 +59,7 @@ public class TodoPluginManager implements PluginManager {
 
 	public void install(Plugin plugin) {
 		plist.add(plugin);
+		plugin.activate();
 	}
 
 	public List<Plugin> listPlugins() {

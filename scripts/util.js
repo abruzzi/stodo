@@ -1,8 +1,10 @@
+const JOptionPane = Java.type("javax.swing.JOptionPane");
+
 //format the todoitem object to String
 function formatTooltip(item){
     	var formatted = new java.lang.StringBuffer();
     	
-    	fomatted.append("<html>");
+    	formatted.append("<html>");
     	formatted.append("<b>Description : </b>").append(item.getDesc()).append(", ");
     	formatted.append("<b>Status : </b>").append(item.getStatus()).append(", ");
     	formatted.append("<b>Timeout : </b>").append(item.getTimeout());
@@ -33,7 +35,7 @@ function log(message){
 
 /*
  * parse time by English style of description, like:
- * tomorrw,
+ * tomorrow,
  * today +3 hours,
  * yesterday,
  * last April,

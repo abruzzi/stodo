@@ -1,5 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'application'
+
+mainClassName = 'org.free.todolist.STodo'
 
 sourceSets {
     main {
@@ -20,13 +23,11 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.xerial:sqlite-jdbc:3.7.2' 
+    implementation 'org.xerial:sqlite-jdbc:3.41.2.2'
     implementation 'org.slf4j:jcl-over-slf4j:1.7.2'
-    implementation 'org.apache.commons:commons-email:1.2'
+    implementation 'org.apache.commons:commons-email:1.5'
     implementation 'javax.mail:mail:1.4.5'
-    implementation 'org.json:json:20090211'
-    implementation 'org.openjdk.nashorn:nashorn-core:15.3'
-    implementation("org.graalvm.js:js:22.2.0")
-    implementation("org.graalvm.js:js-scriptengine:22.2.0")
-
+    implementation 'org.json:json:20231013'
+    implementation "org.graalvm.sdk:graal-sdk:22.3.1"
+    implementation "org.graalvm.js:js:22.3.1"
 }

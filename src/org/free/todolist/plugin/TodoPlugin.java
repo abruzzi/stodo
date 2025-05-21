@@ -1,88 +1,74 @@
 package org.free.todolist.plugin;
 
-import javax.script.*;
-import java.io.FileNotFoundException;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.graalvm.polyglot.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.*;
 
 public class TodoPlugin implements Plugin {
-	private String name;
-	private String desc;
+	private final String name;
+	private final String desc;
 
-	private Map<String, Object> context;
+	private final Map<String, Object> context;
 
-	private ScriptEngine sengine;
-	private Invocable engine;
+	private final String scriptPath;
+	private final Context polyglotContext;
 
-	private Bindings bindings;
-
-	public TodoPlugin(String file, String name, String desc) {
+	public TodoPlugin(Context context, String filePath, String name, String desc) {
+		this.polyglotContext = context;
 		this.name = name;
 		this.desc = desc;
+		this.scriptPath = filePath;
+		this.context = new HashMap<>();
+	}
 
-		context = new HashMap<String, Object>();
-		sengine = RuntimeEnv.getScriptEngine();
-		engine = RuntimeEnv.getInvocableEngine();
-		try {
-			sengine.eval(new java.io.FileReader(file));
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (ScriptException e) {
+	@Override
+	public void activate() {
+		try (FileReader reader = new FileReader(new File(scriptPath))) {
+			polyglotContext.eval(Source.newBuilder("js", reader, scriptPath).build());
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public TodoPlugin(String file, ScriptContext context){
-	    
-	}
-	
-	public TodoPlugin(URL url) {
-
-	}
-
-	public Object execute(String function, Object... objects) {
-		Object result = null;
+	@Override
+	public Value execute(String functionName, Object... args) {
 		try {
-			result = engine.invokeFunction(function, objects);
-		} catch (ScriptException e) {
-			e.printStackTrace();
-		} catch (NoSuchMethodException e) {
+			Value jsFunction = polyglotContext.getBindings("js").getMember(functionName);
+			if (jsFunction != null && jsFunction.canExecute()) {
+				return jsFunction.execute(args);
+			} else {
+				System.err.println("Function not found or not executable: " + functionName);
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return result;
-	}
-
-	public List<String> getAvailiableFunctions() {
 		return null;
 	}
 
-	public String getDescription() {
-		return desc;
+	@Override
+	public List<String> getAvailiableFunctions() {
+		// Optional: you can extract available JS function names if needed
+		return Collections.emptyList();
 	}
 
+	@Override
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	@Override
+	public String getDescription() {
+		return desc;
 	}
 
-	public void setDescription(String desc) {
-		this.desc = desc;
-	}
-
-	/**
-	 * put value to plug-in context, and then put it into engine context
-	 */
 	public void putValueToContext(String key, Object obj) {
-		Bindings bindings = sengine.getBindings(ScriptContext.ENGINE_SCOPE);
-		bindings.put(key, obj);
 		context.put(key, obj);
-		sengine.put(key, obj);
+		polyglotContext.getBindings("js").putMember(key, obj);
 	}
-
 }

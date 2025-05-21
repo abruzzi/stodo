@@ -1,5 +1,7 @@
 package org.free.todolist.plugin;
 
+import org.graalvm.polyglot.Context;
+
 /**
  * 
  * @author juntao.qiu@gmail.com
@@ -42,7 +44,7 @@ public interface PluginManager {
      * @return
      */
     public Plugin getPlugin(String name);
-    
+
     /**
      * remove plug-in by given name
      * @param name
@@ -54,4 +56,6 @@ public interface PluginManager {
      * @return
      */
     public int getPluginNumber();
+
+    public Context getContext();
 }

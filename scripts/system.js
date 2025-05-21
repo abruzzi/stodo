@@ -1,5 +1,6 @@
-const JFrame = Java.type('javax.swing.JFrame');
-const System = Java.type('java.lang.System');
+//const JFrame = Java.type('javax.swing.JFrame');
+//const System = Java.type('java.lang.System');
+
 /*
  * put all initialize code here
  */

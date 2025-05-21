@@ -1,5 +1,7 @@
 package org.free.todolist.plugin;
 
+import org.graalvm.polyglot.Value;
+
 /**
  *
  * @author juntao.qiu@gmail.com
@@ -23,13 +25,15 @@ public interface Plugin {
      * @return
      */
     public java.util.List<String> getAvailiableFunctions();
-    
+
+    void activate();
+
     /**
      * execute the function and return the result (Object)
      * @param function
      * @return
      */
-    public Object execute(String function, Object...objects);
+    public Value execute(String function, Object...objects);
     
     /**
      * put value into context by {key:String, value:Object}

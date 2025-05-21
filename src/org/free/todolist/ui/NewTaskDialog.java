@@ -16,6 +16,7 @@ import org.free.todolist.manager.TaskService;
 import org.free.todolist.model.TodoItem;
 import org.free.todolist.plugin.Plugin;
 import org.free.todolist.plugin.TodoPluginManager;
+import org.graalvm.polyglot.Value;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -201,8 +202,8 @@ public class NewTaskDialog extends javax.swing.JDialog {
 				data.setStatus(cboxStatus.getSelectedItem().toString());
 		    	
 				Plugin plUtil = TodoPluginManager.getInstance().getPlugin("util");
-		    	String date = (String)plUtil.execute("parseTimeout", tfTimeout.getText());
-		    	data.setTimeout(date);
+		    	Value date = plUtil.execute("parseTimeout", tfTimeout.getText());
+		    	data.setTimeout(date.asString());
 
 				data.setPeriod(tfPeriod.getText());
 				data.setNote(epNote.getText());

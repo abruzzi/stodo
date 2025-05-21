@@ -25,9 +25,9 @@ public class STodo {
 
 	public void initEnv(){
 		PluginManager pManager = TodoPluginManager.getInstance();
-		
+
 		Plugin system = 
-			new TodoPlugin("scripts/system.js", "system", "system initialize");		
+			new TodoPlugin(pManager.getContext(), "scripts/system.js", "system", "system initialize");
 		pManager.install(system);
 		
 		ScriptContext context = initContext();
@@ -55,9 +55,12 @@ public class STodo {
 	}
 	
 	public void activePlugin(String scriptFile){
-		Plugin newPlugin = new TodoPlugin(scriptFile, 
+		PluginManager pManager = TodoPluginManager.getInstance();
+
+		Plugin newPlugin = new TodoPlugin(pManager.getContext(), scriptFile,
 				parseScriptName(scriptFile), 
 				parseScriptName(scriptFile));
+
 		TodoPluginManager.getInstance().install(newPlugin);
 	}
 	
@@ -78,11 +81,16 @@ public class STodo {
 	}
 	
 	public static void main(String[] args){
+		System.out.println("java.vm.name = " + System.getProperty("java.vm.name"));
+		System.out.println("java.home = " + System.getProperty("java.home"));
+
 		STodo sTodo = new STodo(new MainFrame("My todo list"));
 		sTodo.initEnv();
 		
 		Plugin system = TodoPluginManager.getInstance().getPlugin("system");
+
 		system.putValueToContext("Application", sTodo);
+		system.activate();
 		
 		system.execute("main", new Object());
 	}

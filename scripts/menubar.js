@@ -1,6 +1,13 @@
+const JFrame = Java.type('javax.swing.JFrame');
 var JMenu = Java.type('javax.swing.JMenu')
 var JMenuItem = Java.type('javax.swing.JMenuItem')
 var ImageIcon = Java.type('javax.swing.ImageIcon')
+
+const ActionListener = Java.type("java.awt.event.ActionListener");
+const JEditorPane = Java.type("javax.swing.JEditorPane");
+const BorderLayout = Java.type("java.awt.BorderLayout");
+
+const HelpDialog = Java.type("org.free.extend.ui.HelpDialog");
 
 var app = Application;
 
@@ -15,14 +22,12 @@ var STodoMenuItem = function(text, icon, func){
 	}
 };
 
-STodoMenuItem.prototype.click = function(func){
-	this.menu.addActionListener(
-		new JavaAdapter(
-			ActionListener, {
-				actionPerformed : func
-			}
-		)
-	);
+STodoMenuItem.prototype.click = function(func) {
+    this.menu.addActionListener(
+        new ActionListener() {
+            actionPerformed: func
+        }
+    );
 };
 
 STodoMenuItem.prototype.getMenuObject = function(){
@@ -36,31 +41,32 @@ function buildPluginMenu(){
 	
 	var menuItemListPlugin = new JMenuItem();
 	menuItemListPlugin.setText("list plugins");
-	menuItemListPlugin.addActionListener(
-	new JavaAdapter(
-		ActionListener, {
-			actionPerformed : function(event){
-				var plFrame = new JFrame("plugins list");
-				var epNote = new JEditorPane();
-				var s = "";
-				pluginList = app.getPluginList();
-				for(var i = 0; i<pluginList.size();i++){
-					var pi = pluginList.get(i);
-					s += pi.getName()+":"+pi.getDescription()+"\n";
-				}
-				epNote.setText(s);
-				epNote.setEditable(false);
-				plFrame.add(epNote, BorderLayout.CENTER);
-				plFrame.setSize(200,200);
-				plFrame.setLocationRelativeTo(null);
-				plFrame.setVisible(true);
-			}
-		}
-	));
+
+    menuItemListPlugin.addActionListener(
+        new ActionListener() {
+                                actionPerformed: function(event) {
+                                    var plFrame = new JFrame("plugins list");
+                                    var epNote = new JEditorPane();
+                                    var s = "";
+
+                                    var pluginList = app.getPluginList();
+                                    for (var i = 0; i < pluginList.size(); i++) {
+                                        var pi = pluginList.get(i);
+                                        s += pi.getName() + ": " + pi.getDescription() + "\n";
+                                    }
+
+                                    epNote.setText(s);
+                                    epNote.setEditable(false);
+                                    plFrame.add(epNote, BorderLayout.CENTER);
+                                    plFrame.setSize(200, 200);
+                                    plFrame.setLocationRelativeTo(null);
+                                    plFrame.setVisible(true);
+                                }
+            });
 	
 	menuPlugin.add(menuItemListPlugin);
-	
-	return menuPlugin;	
+
+	return menuPlugin;
 }
 
 function buildHelpMenu(){
@@ -69,30 +75,25 @@ function buildHelpMenu(){
 	
 	var menuItemHelp = new JMenuItem();
 	menuItemHelp.setText("Help");
-	
-	menuItemHelp.addActionListener(
-	new JavaAdapter(
-		ActionListener, {
-			actionPerformed : function(event){
-				importPackage(Packages.org.someone.dialog);
-				var hDialog = new HelpDialog(null, "This is Help");
-			}
-		}
-	));
-	
+
+    menuItemHelp.addActionListener(new ActionListener() {
+      actionPerformed: function(event) {
+        var hDialog = new HelpDialog(null, "This is Help");
+        hDialog.setVisible(true);
+      }
+    });
+
 	menuHelp.add(menuItemHelp);
 
 	var mAlert = new JMenuItem();
 	mAlert.setText("Alert");
-	mAlert.addActionListener(new JavaAdapter(
-		ActionListener,
-		{
-			actionPerformed : function(event){
-				alert("Hello, world");
-				//alert(event.toString());
-			}
-		}
-	));
+
+    mAlert.addActionListener(new ActionListener() {
+        actionPerformed: function(event) {
+            Java.type("javax.swing.JOptionPane").showMessageDialog(null, event.toString());
+        }
+    });
+
 	menuHelp.add(mAlert);
 	
 	var menu = new STodoMenuItem("test", "imgs/plugin.png");

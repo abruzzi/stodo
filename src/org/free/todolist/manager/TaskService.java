@@ -43,8 +43,13 @@ public class TaskService {
 	}
 	
 	public void scheduleItem(TodoItem item){
+		if(item.getTimeout() == null) {
+			return;
+		}
+
 		Task nt = new Alert(item);
 		long now = System.currentTimeMillis();
+
 		long timeout = convert(item.getTimeout());
 		long delay = timeout - now;
 		
