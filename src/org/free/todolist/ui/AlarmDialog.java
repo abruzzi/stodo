@@ -6,10 +6,12 @@ import org.free.todolist.model.TodoItem;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serial;
 
 public class AlarmDialog extends JDialog{
-	private static final long serialVersionUID = 7752112784554536906L;
-	private TodoItem dataModel;
+	@Serial
+    private static final long serialVersionUID = 7752112784554536906L;
+	private final TodoItem dataModel;
 	
     public AlarmDialog(TodoItem item) {
     	dataModel = item;
@@ -28,7 +30,7 @@ public class AlarmDialog extends JDialog{
     
     private String formatTooltip(TodoItem item){
     	StringBuffer formatted = new StringBuffer();
-    	
+
     	formatted.append("<html>");
     	formatted.append("<b>Description : </b>").append(item.getDesc()).append(", <br/>");
     	formatted.append("<b>Status : </b>").append(item.getStatus()).append(", <br/>");
@@ -49,7 +51,7 @@ public class AlarmDialog extends JDialog{
     	return dataModel;
     }
     
-    class AlarmPanel extends JPanel{
+    static class AlarmPanel extends JPanel{
 		private static final long serialVersionUID = 8289268785003213308L;
 		private AlarmDialog parent;
     	private String tip;

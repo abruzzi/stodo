@@ -6,7 +6,7 @@ import org.json.JSONObject;
  * todo item is a simple tree data-model, it can be used to build a swing-jtree
  * component
  * 
- * @author juntao.qiu@china.jinfonet.com
+ * @author juntao.qiu@gmail.com
  * 
  */
 public class TodoItem {

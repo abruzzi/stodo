@@ -2,8 +2,9 @@ package org.free.todolist.model;
 
 /**
  * User preference, include network settings, mail account information
- * and other useful information. Those information stored in a single 
- * properties file in application folder.
+ * and other useful information. This information is stored in a single
+ * properties file in the application folder.
+ *
  * <br>
  * Just a simple java-bean
  * <br>
@@ -20,7 +21,7 @@ public class Preference {
 	//proxy port
 	private String proxyPort;
 	
-	//where you want to export your tasks to?
+	//where you want to export your tasks to
 	private String exportPath;
 	
 	//use ssl in mail server or not
@@ -92,7 +93,5 @@ public class Preference {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
-	
+
 }

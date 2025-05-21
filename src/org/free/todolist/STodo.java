@@ -6,7 +6,6 @@ import org.free.todolist.plugin.TodoPlugin;
 import org.free.todolist.plugin.TodoPluginManager;
 import org.free.todolist.ui.MainFrame;
 
-import javax.script.ScriptContext;
 import javax.swing.*;
 import java.util.List;
 
@@ -17,7 +16,7 @@ import java.util.List;
  *
  */
 public class STodo {
-	private MainFrame mainFrame;
+	private final MainFrame mainFrame;
 	
 	public STodo(MainFrame frame){
 		this.mainFrame = frame;
@@ -29,15 +28,13 @@ public class STodo {
 		Plugin system = 
 			new TodoPlugin(pManager.getContext(), "scripts/system.js", "system", "system initialize");
 		pManager.install(system);
-		
-		ScriptContext context = initContext();
-	}
+    }
 	
 	private static String parseScriptName(String name){
 		String scriptName;
 		int slash = name.lastIndexOf("/");
 		if(slash < 0){
-			scriptName = name.substring(0);
+			scriptName = name;
 		}else{
 			scriptName = name.substring(slash+1);
 		}
@@ -48,10 +45,6 @@ public class STodo {
 		}
 		
 		return scriptName;
-	}
-	
-	public ScriptContext initContext(){
-	    return null;
 	}
 	
 	public void activePlugin(String scriptFile){

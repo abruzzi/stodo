@@ -5,11 +5,12 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This is the datamodel of the filterable-list, the items in the list
+ * This is the data-model of the filterable-list, the items in the list
  * can be searched by key-down event
  * 
  * @author juntao.qiu@gmail.com
@@ -17,10 +18,11 @@ import java.util.List;
  */
 public class FilterableListModel extends AbstractListModel implements
 		DocumentListener {
+	@Serial
 	private static final long serialVersionUID = -2409529218176332776L;
 	
-	private List<Object> list;
-	private List<Object> filteredList;
+	private final List<Object> list;
+	private final List<Object> filteredList;
 	private String lastFilter = "";
 
 	public FilterableListModel() {
@@ -53,13 +55,13 @@ public class FilterableListModel extends AbstractListModel implements
 	}
 	
 	/*
-	 * search the list, compare two string, indexOf will return 
+	 * search the list, compare two strings, indexOf will return
 	 * the index, if != -1, then added it into filtered-list.
 	 */
 	private void filter(String search) {
 		filteredList.clear();
 		for (Object element : list) {
-			if (element.toString().indexOf(search, 0) != -1) {
+			if (element.toString().contains(search)) {
 				filteredList.add(element);
 			}
 		}
