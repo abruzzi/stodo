@@ -12,7 +12,7 @@ import java.util.List;
  *
  */
 public class TodoPluginManager implements PluginManager {
-	private List<Plugin> plist;
+	private final List<Plugin> plist;
 	private static TodoPluginManager instance;
 
 	private final Context polyglotContext;

@@ -9,36 +9,29 @@ import org.graalvm.polyglot.Value;
  */
 public interface Plugin {
     /**
-     * get the name of a plug-in
-     * @return
+     * get the name of a plugin
      */
-    public String getName();
+    String getName();
     
     /**
-     * get short description of a plug-in
-     * @return
+     * get a short description of a plugin
      */
-    public String getDescription();
+    String getDescription();
     
     /**
-     * get all available function names 
-     * @return
+     * get all available function names
      */
-    public java.util.List<String> getAvailiableFunctions();
+    java.util.List<String> getAvailableFunctions();
 
     void activate();
 
     /**
      * execute the function and return the result (Object)
-     * @param function
-     * @return
      */
-    public Value execute(String function, Object...objects);
+    Value execute(String function, Object... objects);
     
     /**
      * put value into context by {key:String, value:Object}
-     * @param key
-     * @param obj
      */
-    public void putValueToContext(String key, Object obj);
+    void putValueToContext(String key, Object obj);
 }

@@ -52,7 +52,7 @@ public class TodoPlugin implements Plugin {
 	}
 
 	@Override
-	public List<String> getAvailiableFunctions() {
+	public List<String> getAvailableFunctions() {
 		// Optional: you can extract available JS function names if needed
 		return Collections.emptyList();
 	}

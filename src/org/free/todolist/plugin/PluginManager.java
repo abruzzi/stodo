@@ -10,52 +10,43 @@ import org.graalvm.polyglot.Context;
 public interface PluginManager {
     /**
      * activate a plug-in
-     * @param plugin
      */
-    public void activate(Plugin plugin);
+    void activate(Plugin plugin);
     
     /**
      * de-activate a plug-in
-     * @param plugin
      */
-    public void deactivate(Plugin plugin);
+    void deactivate(Plugin plugin);
     
     /**
      * install a plug-in to system
-     * @param plugin
      */
-    public void install(Plugin plugin);
+    void install(Plugin plugin);
     
     /**
-     * delete a plug-in to system
-     * @param plugin
+     * delete a plug-in from the system
      */
-    public void uninstall(Plugin plugin);
+    void uninstall(Plugin plugin);
     
     /**
-     * list all of plug-ins out
-     * @return
+     * list all the plug-ins out
      */
-    public java.util.List<Plugin> listPlugins();
+    java.util.List<Plugin> listPlugins();
     
     /**
      * get plug-in by given name
-     * @param name
-     * @return
      */
-    public Plugin getPlugin(String name);
+    Plugin getPlugin(String name);
 
     /**
      * remove plug-in by given name
-     * @param name
      */
-    public void removePlugin(String name);
+    void removePlugin(String name);
     
     /**
-     * get number of plug-ins current in using
-     * @return
+     * get the number of plug-ins currently in using
      */
-    public int getPluginNumber();
+    int getPluginNumber();
 
-    public Context getContext();
+    Context getContext();
 }
