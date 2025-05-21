@@ -9,10 +9,9 @@ function main(){
 	var ui = app.getUI();
 
 	//set look and feel to windows
-	ui.setLookAndFeel("system");
+	ui.setLookAndFeel("motif");
 
 	//load some new scripts
-	app.activePlugin("scripts/json.js");
 	app.activePlugin("scripts/date.js");
 	app.activePlugin("scripts/util.js");
 	app.activePlugin("scripts/menubar.js");
